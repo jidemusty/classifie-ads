@@ -1,23 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                    @foreach ($areas as $country)
+                        <div class="col-md-12">
+                            <h3><a href="">{{ $country->name }}</a></h3>
+                            <hr/>
+
+                            <div class="row">
+                                @foreach ($country->children as $state)
+                                    <div class="col-md-4">
+                                        <h4><a href="">{{ $state->name }}</a></h4>
+                                        <hr/>
+
+                                        @foreach ($state->children as $city)
+                                            <h5><a href="">{{ $city->name }}</a></h5>
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    @endif
-
-                    You are logged in!
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
