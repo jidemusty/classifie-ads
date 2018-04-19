@@ -15,7 +15,7 @@ class Listing extends Model
         return $query->where('category_id', $category->id);
     }
 
-    public function scopeFromArea($query, Area $area)
+    public function scopeInArea($query, Area $area)
     {
         return $query->whereIn('area_id', array_merge(
             [$area->id],

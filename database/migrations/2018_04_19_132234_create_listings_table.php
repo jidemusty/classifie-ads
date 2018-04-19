@@ -18,7 +18,7 @@ class CreateListingsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('user_id')->unsigned();
-            $table->integer('area')->unsigned();
+            $table->integer('area_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->boolean('live')->default(false);
             $table->softDeletes();
