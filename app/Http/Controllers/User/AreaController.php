@@ -12,7 +12,6 @@ class AreaController extends Controller
     {
         session()->put('area', $area->slug);
 
-        // redirect to category index
-        return back();
+        return redirect()->route('category.index', [$area]);
     }
 }
