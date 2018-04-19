@@ -1,15 +1,21 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+
+    <link href="{{ asset('css/categories.css') }}" rel="stylesheet">
+
+@endsection
+
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row categories">
             @foreach ($categories as $category)
-                <div class="col-md-4">
+                <div class="col-md-12 category">
                     <h5>{{ $category->name }}</h5>
                     <hr/>
 
                     @foreach ($category->children as $sub)
-                        <h5><a href="">{{ $sub->name }}</a> (x)</h5>
+                        <a href="" class="cat">{{ $sub->name }} (x)</a>
                     @endforeach
 
                 </div>
